@@ -20,4 +20,7 @@ class TipoAdmin(admin.ModelAdmin):
 
 @admin.register(Vehiculo)
 class VehiculoAdmin(admin.ModelAdmin):
-    list_diplsay = '__all__'
+    list_diplsay = '__all__' 
+    search_fields= ["modelo__marca__nombre","modelo__nombre","modelo__version"]
+    
+    

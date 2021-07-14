@@ -78,7 +78,7 @@ class Vehiculo(models.Model):
 
     # NOMBRE= MODELO.MARCA.TIPO.VERSION
     def __str__(self):
-        return f"{self.modelo.marca} {self.modelo.nombre}"
+        return f"{self.modelo.marca} {self.modelo.nombre} {self.modelo.version}"
     
     class Meta:
         db_table = 'vehiculo'
