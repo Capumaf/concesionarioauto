@@ -50,16 +50,17 @@ class Modelo(models.Model):
     id = models.AutoField(primary_key=True)  
     nombre= models.CharField(max_length=200,blank=False,null=False)
     version= models.CharField(max_length=200)       
-    ano= models.IntegerField(max_length=4,blank=False,null=False)
+    ano= models.IntegerField(blank=False,null=False)
     motor= models.CharField(max_length=100,blank=False,null=False)
     transmision= models.CharField(max_length=100,blank=False,null=False)
     frenos= models.CharField(max_length=100,blank=False,null=False)
     medidas= models.CharField(max_length=100)
     tipo= models.ForeignKey(Tipo,on_delete=CASCADE)
     marca= models.ForeignKey(Marca,on_delete=CASCADE)
+    accesorio= models.ManyToManyField(Accesorio)
 
     def __str__(self):
-        return f"{self.marca.nombre} {self.nombre}"
+        return f"{self.marca.nombre} {self.nombre} {self.version}"
      
     
     class Meta:
@@ -78,7 +79,6 @@ class Vehiculo(models.Model):
     # NOMBRE= MODELO.MARCA.TIPO.VERSION
     def __str__(self):
         return f"{self.modelo.marca} {self.modelo.nombre}"
-
     
     class Meta:
         db_table = 'vehiculo'
