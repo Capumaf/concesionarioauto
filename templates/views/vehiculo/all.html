@@ -1,0 +1,12 @@
+{% extends 'layouts/auth.html'%}
+
+{% block 'content' %}
+
+<h1>Vehiculos</h1>
+<ul>
+    {% for vehiculo in object_list %}
+    <li>{{vehiculo}} - {{vehiculo.color}} - {{vehiculo.precio}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

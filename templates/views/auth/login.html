@@ -1,0 +1,14 @@
+{% extends 'layouts/auth.html'%}
+
+{% block 'content' %}
+
+<h1>LoG iN</h1>
+<form method='POST'>
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit">No enviar</button>
+
+</form>
+
+
+{% endblock %}
